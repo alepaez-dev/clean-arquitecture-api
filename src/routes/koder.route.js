@@ -29,6 +29,15 @@ router.get("/:id", async (request, response) => {
   const { id } = request.params
   try {
     const koder = await getById(id)
+    if(!koder) {
+      // Si koder buscado, no existe ....
+      // throw -> lanzar, hacerlo, ejecutarlo
+      const error = new Error("No fue encontrado el Koder") // esto es como un return
+
+      // A ese error le agrege una propiedad nueva que se llama status, y le puse el status que yo quise.
+      error["status"] = 404 // error de cliiente
+      throw error
+    }
     response.json({
       success: true,
       data: {
@@ -37,7 +46,7 @@ router.get("/:id", async (request, response) => {
     })
   } catch(error) {
     // No se encontro
-    response.status(404) // Not found
+    response.status(error.status) // Not found
     response.json({
       success:false,
       message: error.message
