@@ -1,4 +1,5 @@
-const { Koder } = require("../models/koder.model")
+const Koder = require("../models/koder.model")
+const createError = require('http-errors')
 
 // Usecases
 // Funciones asincronas -> Regresan una promesa
@@ -11,11 +12,10 @@ const getAll = () => {
 }
 
 const getById = async (id) => {
-  const koder = await Koder.findById(id)
+  const koder = await Koder.findById()
 
   if(!koder) {
-    const error = new Error("No se encontro un koder")
-    error["status"] = 404
+    const error = createError(404, "Koder no encontrado")
     throw error
   }
 

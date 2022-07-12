@@ -29,13 +29,8 @@ const koderSchema = new mongoose.Schema({
   }
 })
 
-// Models
-const Koder = mongoose.model("koders", koderSchema)
-const Koder2 = mongoose.model("koders", koderSchema)
-
-
 // Koder -> modelo -> 1cosa
 // Arreglo -> 1cosa que tiene muchas cosas
 // Objeto -> 1cosa con muchas cosas
 // Exportar
-module.exports = { Koder, Koder2 }
+module.exports = mongoose.model("koders", koderSchema)

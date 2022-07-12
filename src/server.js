@@ -12,6 +12,13 @@
  * Hacer PATCH y DELETE de koder.
  */
 
+/**
+ * Collections mentores
+ * - > Entities -> Schema -> Model
+ * - > Usecases
+ * - > Routes -> 3 Endpoints. Get, GetById, Create
+ * - > Middleware que me conecta las rutas
+ */
 const express = require("express")
 const routerKoders = require("./routes/koder.route")
 const middlewareImprimir = require("./middlewares/generico.middleware")
