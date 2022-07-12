@@ -10,11 +10,23 @@ const getAll = () => {
   return koders
 }
 
-const getById = (id) => {
-  const koder = Koder.findById()
+const getById = async (id) => {
+  const koder = await Koder.findById(id)
+
+  if(!koder) {
+    const error = new Error("No se encontro un koder")
+    error["status"] = 404
+    throw error
+  }
+
   return koder
 }
 
-module.exports = { getAll, getById }
+const create = (koderData) => {
+  const koder = Koder.create(koderData)
+  return koder
+}
+
+module.exports = { getAll, getById, create }
 
 

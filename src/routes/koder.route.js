@@ -1,5 +1,6 @@
-const express = require("express")
-const { getAll, getById } = require("../usecases/koder.usecase")
+const express = require("express");
+const app = require("../server");
+const { getAll, getById, create } = require("../usecases/koder.usecase")
 
 const router = express.Router()
 
@@ -26,18 +27,11 @@ router.get("/", async (request, response) => {
 // GetByID
 // koders/:id
 router.get("/:id", async (request, response) => {
+  // Tratamos nuestras sean lo mas tontas posibles
   const { id } = request.params
+
   try {
     const koder = await getById(id)
-    if(!koder) {
-      // Si koder buscado, no existe ....
-      // throw -> lanzar, hacerlo, ejecutarlo
-      const error = new Error("No fue encontrado el Koder") // esto es como un return
-
-      // A ese error le agrege una propiedad nueva que se llama status, y le puse el status que yo quise.
-      error["status"] = 404 // error de cliiente
-      throw error
-    }
     response.json({
       success: true,
       data: {
@@ -46,7 +40,7 @@ router.get("/:id", async (request, response) => {
     })
   } catch(error) {
     // No se encontro
-    response.status(error.status) // Not found
+    response.status(error.status || 500) // Not found
     response.json({
       success:false,
       message: error.message
@@ -54,5 +48,29 @@ router.get("/:id", async (request, response) => {
   }
 })
 
+// koders/
+router.post("/", async (request, response) => {
+  // request.body
+  try {
+    const koder = await create(request.body)
+    response.status(201)
+    response.json({
+      success: true,
+      data: {
+        koder
+      }
+    })
+
+  } catch(error) {
+    response.status(400)
+    response.json({
+      success: false,
+      message: error.message
+    })
+  }
+})
+
 // 5 Endpoints
 module.exports = router
+
+// Router -> algo qiue tiene muchas rutas, pero estas encapsuladas en el router
