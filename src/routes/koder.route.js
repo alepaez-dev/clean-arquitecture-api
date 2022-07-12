@@ -1,7 +1,7 @@
 
 const express = require("express");
 const app = require("../server");
-const { getAll, getById, create } = require("../usecases/koder.usecase")
+const { getAll, getById, create, update, remove } = require("../usecases/koder.usecase")
 
 const router = express.Router()
 
@@ -64,6 +64,42 @@ router.post("/", async (request, response) => {
 
   } catch(error) {
     response.status(400)
+    response.json({
+      success: false,
+      message: error.message
+    })
+  }
+})
+
+router.delete("/:id", async (request, response) => {
+  try {
+    await remove(request.params.id)
+    response.json({
+      success: true,
+      message: "Koder was deleted..."
+    })
+
+  } catch(error) {
+    response.status(400)
+    response.json({
+      success: false,
+      message: error.message
+    })
+  }
+})
+
+router.patch("/:id", async (request, response) => {
+  try {
+    const koder = await update(request.params.id, request.body)
+    response.json({
+      success: true,
+      data: {
+        koder
+      }
+    })
+
+  } catch(error) {
+    response.status(404)
     response.json({
       success: false,
       message: error.message

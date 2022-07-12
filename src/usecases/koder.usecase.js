@@ -27,6 +27,16 @@ const create = (koderData) => {
   return koder
 }
 
-module.exports = { getAll, getById, create }
+const update = (id, koderData) => {
+  // Si les llega a pasar findByIdAndUpdate
+  const koder = Koder.findByIdAndUpdate(id, koderData, { returnDocument: 'after' })
+  return koder
+}
+
+const remove = (id) => {
+  const koder = Koder.findByIdAndDelete(id)
+  return koder
+}
+module.exports = { getAll, getById, create, update, remove }
 
 
