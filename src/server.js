@@ -1,8 +1,13 @@
 const express = require("express")
+const routerKoders = require("./routes/koder.route")
+
 const app = express();
 
 // Middleware
 app.use(express.json())
+
+// Middleware de ruta
+app.use("/koders", routerKoders)
 
 /**
  * 
@@ -15,6 +20,7 @@ app.get("/", (request, response) => {
     message: "Endpoint de Home, Bienvenido a nuestra API de clean arquitecture"
   })
 })
+
 
 // Exportar
 // module.exports -> nada mas puedes exportar una cosa por archivo

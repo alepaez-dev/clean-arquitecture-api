@@ -1,4 +1,4 @@
-const Koder = require("../models/koder.model")
+const { Koder } = require("../models/koder.model")
 
 // Usecases
 const getAll = async () => {

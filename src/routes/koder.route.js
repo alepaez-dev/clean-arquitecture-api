@@ -3,6 +3,7 @@ const { getAll, getById } = require("../usecases/koder.usecase")
 
 const router = express.Router()
 
+// /koders
 router.get("/", async (request, response) => {
   try {
     const koders = await getAll(); // useCase
@@ -22,4 +23,5 @@ router.get("/", async (request, response) => {
   }
 })
 
+// 5 Endpoints
 module.exports = router

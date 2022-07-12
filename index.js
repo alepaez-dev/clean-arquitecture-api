@@ -2,9 +2,6 @@ require('dotenv').config()
 const mongoose = require("mongoose")
 const server = require("./src/server")
 
-// Confirmando que funciona
-console.log("confirm process env", process.env)
-
 // process
 // .env
 // Variables de entorno
