@@ -1,17 +1,19 @@
 const { Koder } = require("../models/koder.model")
 
 // Usecases
-const getAll = async () => {
+// Funciones asincronas -> Regresan una promesa
+const getAll = () => {
   console.log("estoy en getALL")
-  const koders = await Koder.find({})
+  const koders = Koder.find({})
 
   // Aqui va la logica
+  // Si va mas logica os lo va a hacer en una promesa pending, y si se opta por usar async/await
   return koders
 }
 
-const getById = async () => {
+const getById = (id) => {
   console.log("estoy en getById")
-  const koder = await Koder.findById()
+  const koder = Koder.findById(id)
   return koder
 }
 

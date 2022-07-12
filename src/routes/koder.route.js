@@ -23,5 +23,27 @@ router.get("/", async (request, response) => {
   }
 })
 
+// GetByID
+// koders/:id
+router.get("/:id", async (request, response) => {
+  const { id } = request.params
+  try {
+    const koder = await getById(id)
+    response.json({
+      success: true,
+      data: {
+        koder
+      }
+    })
+  } catch(error) {
+    // No se encontro
+    response.status(404) // Not found
+    response.json({
+      success:false,
+      message: error.message
+    })
+  }
+})
+
 // 5 Endpoints
 module.exports = router
