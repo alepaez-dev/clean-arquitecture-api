@@ -13,10 +13,11 @@
  */
 
 /**
+ * TAREA
  * Collections mentores
  * - > Entities -> Schema -> Model
  * - > Usecases
- * - > Routes -> 3 Endpoints. Get, GetById, Create
+ * - > Routes -> 3 Endpoints. Get, GetById, Create, Patch, Delete (cualquiera de esas)
  * - > Middleware que me conecta las rutas
  */
 const express = require("express")
