@@ -15,10 +15,11 @@
 /**
  * TAREA
  * Collections mentores
- * - > Entities -> Schema -> Model
+ * - > Entities -> Schemas -> Model
  * - > Usecases
  * - > Routes -> 3 Endpoints. Get, GetById, Create, Patch, Delete (cualquiera de esas)
  * - > Middleware que me conecta las rutas
+ * - > Mandar REPO
  */
 const express = require("express")
 const routerKoders = require("./routes/koder.route")
