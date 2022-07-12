@@ -12,7 +12,7 @@ const getAll = () => {
 }
 
 const getById = async (id) => {
-  const koder = await Koder.findById()
+  const koder = await Koder.findById(id)
 
   if(!koder) {
     const error = createError(404, "Koder no encontrado")
