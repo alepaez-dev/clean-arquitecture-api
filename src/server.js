@@ -23,6 +23,7 @@
  */
 const express = require("express")
 const routerKoders = require("./routes/koder.route")
+const routerMentors = require("./routes/mentor.route")
 const middlewareImprimir = require("./middlewares/generico.middleware")
 
 const app = express();
@@ -33,8 +34,7 @@ app.use(middlewareImprimir)
 
 // Middleware de ruta
 app.use("/koders", routerKoders)
-
-
+app.use("/mentors", routerMentors)
 
 /**
  * 
