@@ -1,25 +1,15 @@
 /**
- * Ejercicio 1
- * Hacer un middleware global, que me imprima
- * EJ: 
- * 
- * enndpoint request.method
- * 
- * console.log("method", "estamos por un middleware")
- * - GET: "Estamos pasando por un middleware"
- * 
- * Ejercicio 2
- * Hacer PATCH y DELETE de koder.
- */
-
 /**
- * TAREA
- * Collections mentores
- * - > Entities -> Schemas -> Model
- * - > Usecases
- * - > Routes -> 3 Endpoints. Get, GetById, Create, Patch, Delete (cualquiera de esas)
- * - > Middleware que me conecta las rutas
- * - > Mandar REPO
+ * EJERCICIO
+ * En el mismo endpoint donde actualizo la generacion.
+ * Esa generacion crearla en una coleccion nueva.
+ * 
+ * {
+ *  name:
+ *  module:
+ * }
+ * 
+ * 
  */
 const express = require("express")
 const routerKoders = require("./routes/koder.route")

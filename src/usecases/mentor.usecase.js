@@ -54,6 +54,15 @@ const changeGeneration = async (id, dataGeneration) => {
 
   // Actualizar en la base de datos
   const updatedMentor = await Mentor.findByIdAndUpdate(id, mentorFound, { returnDocument: "after" })
+
+  // Se repite
+  // Mandar a llamar el usecase de crear generacion aqui
+  // 1 - Crear schema de generations { name, module }
+  // 2 - Modle de generations
+  // 3 - Use case de crear una generacion
+
+  // mandar a llamar usecase generation.usecase.js
+  // NO VAN A HACER RUTA DE CREATE GENERATION
   return updatedMentor
 }
 
