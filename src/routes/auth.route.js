@@ -7,10 +7,10 @@ const router = express.Router()
 router.post("/", async(request, response) => {
   const { email, password } = request.body
   try {
-    const user = await login(email, password)
+    const token = await login(email, password)
     response.json({
       success: true,
-      data: "Haz iniciado sesion!!!"
+      token
     })
   }catch(error) {
     response.status(error.status || 500)
