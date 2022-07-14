@@ -6,7 +6,7 @@ const auth = require("../middlewares/auth.middleware")
 const router = express.Router();
 
 // Middleware de auth
-router.use(auth)
+// router.use(auth)
 
 router.get("/", async (request, response) => {
   try {
@@ -28,10 +28,9 @@ router.get("/", async (request, response) => {
 
 })
 
-router.get("/:id", async (request, response) => {
-  const { id } = request.params
+router.get("/detail", auth, async (request, response) => {
   try {
-    const user =  await getById(id);
+    const user =  await getById(request.userId);
     response.json({
       success: true,
       data: {
