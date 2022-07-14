@@ -2,6 +2,7 @@ const createError = require("http-errors")
 const bcrypt = require("bcrypt")
 const User = require("../models/user.model")
 const jwt  = require("../lib/jwt.lib")
+
 // jwt ->  { sign, verify }
 // jwt.sign
 // jwt.verify
@@ -28,7 +29,7 @@ const login = async (email, textPlainPassword) => {
   // Haciendo token
   const token = jwt.sign({ id: user._id })
   console.log("token", token)
-  
+
   return token;
 }
 
