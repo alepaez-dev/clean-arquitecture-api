@@ -12,6 +12,7 @@
  * 
  */
 const express = require("express")
+const cors = require("cors")
 const routerKoders = require("./routes/koder.route")
 const routerUsers = require("./routes/user.route")
 const routerMentors = require("./routes/mentor.route")
@@ -21,6 +22,7 @@ const middlewareImprimir = require("./middlewares/generico.middleware")
 const app = express();
 
 // Middleware
+app.use(cors()) // Control Access -> Permitimos que nuesro frontend se pueda comunicar con nosotros
 app.use(express.json())
 app.use(middlewareImprimir)
 

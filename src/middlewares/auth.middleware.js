@@ -10,7 +10,6 @@ const auth = (request, response , next) => {
     console.log("verifiedToken", verifiedToken)
 
     request["userId"] = verifiedToken.id
-    console.log("request userId", request.userId)
     next()
   }catch(error) {
     response.status(error.status || 401)
